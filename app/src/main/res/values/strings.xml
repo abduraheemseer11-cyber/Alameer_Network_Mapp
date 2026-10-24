@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">خريطة شبكة الأمير</string>
+    <string name="app_subtitle">نظام الخرائط الجغرافية لإدارة شبكات الإنترنت</string>
+    <string name="developer_name">المهندس عبدالرحيم الماخذي</string>
+    <string name="app_version">1.0.0</string>
+    <string name="app_description">تطبيق احترافي مخصص لإدارة وتحديد مواقع أجهزة ومودمات شبكات الإنترنت السلكية واللاسلكية وصناديق الوتر بروف والأنتينات عبر خريطة الأقمار الصناعية أوفلاين مع إمكانية القياس والبحث السريع وتصدير واستيراد البيانات.</string>
+</resources>

@@ -1,0 +1,6 @@
+{
+  "name": "خريطة شبكة الأمير",
+  "description": "تطبيق خريطة شبكة الأمير للمهندس عبدالرحيم الماخذي - إدارة وتتبع أجهزة ومودمات شبكات الإنترنت وصناديق الوتر بروف عبر خريطة قمر صناعي بدون إنترنت",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
