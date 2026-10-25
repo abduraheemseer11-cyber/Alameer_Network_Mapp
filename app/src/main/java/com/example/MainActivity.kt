@@ -1,9 +1,12 @@
 package com.example
 
+import android.Manifest
 import android.os.Bundle
 import androidx.activity.ComponentActivity
+import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Surface
@@ -26,6 +29,31 @@ class MainActivity : ComponentActivity() {
 
         setContent {
             MyApplicationTheme {
+                // 1. إعداد الأذونات المطلوبة
+                val permissionsToRequest = arrayOf(
+                    Manifest.permission.ACCESS_FINE_LOCATION,
+                    Manifest.permission.ACCESS_COARSE_LOCATION,
+                    Manifest.permission.READ_CONTACTS,
+                    Manifest.permission.WRITE_CONTACTS,
+                    Manifest.permission.CALL_PHONE,
+                    Manifest.permission.READ_MEDIA_IMAGES,
+                    Manifest.permission.READ_MEDIA_VIDEO,
+                    Manifest.permission.READ_MEDIA_AUDIO
+                )
+
+                // 2. مشغل طلب الأذونات
+                val permissionLauncher = rememberLauncherForActivityResult(
+                    contract = ActivityResultContracts.RequestMultiplePermissions()
+                ) { permissionsResult ->
+                    // يمكنك هنا إضافة منطق إذا تم رفض إذن معين
+                    // مثلاً: إذا تم رفض إذن الموقع، يمكنك إظهار رسالة للمستخدم
+                }
+
+                // 3. طلب الأذونات تلقائياً عند فتح التطبيق
+                LaunchedEffect(Unit) {
+                    permissionLauncher.launch(permissionsToRequest)
+                }
+
                 // Mandatory Arabic RTL Layout Direction for the entire application
                 CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Rtl) {
                     Surface(modifier = Modifier.fillMaxSize()) {
